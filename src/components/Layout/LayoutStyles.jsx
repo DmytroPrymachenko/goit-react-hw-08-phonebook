@@ -97,10 +97,10 @@ export const HeaderNavLink2 = styled(NavLink)`
   transition: 0.5s;
 
   &:hover {
-    background: #1e9bff;
-    color: #1e9bff;
+    background: #1eff29;
+    color: #1eff29;
     letter-spacing: 0.25em;
-    box-shadow: 0 0 35px #1e9bff;
+    box-shadow: 0 0 35px #1eff29;
   }
 
   &::before {
@@ -166,10 +166,10 @@ export const HeaderNavLink3 = styled(NavLink)`
   transition: 0.5s;
 
   &:hover {
-    background: #1e9bff;
-    color: #1e9bff;
+    background: #fbff1e;
+    color: #fbff1e;
     letter-spacing: 0.25em;
-    box-shadow: 0 0 35px #1e9bff;
+    box-shadow: 0 0 35px #fbff1e;
   }
 
   &::before {
