@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { ButtonType, FormsDiv, InputName, InputPhone, LabelName, LabelPhone } from './StylesJSX/FormStyles';
 import { useDispatch, useSelector } from 'react-redux';
-// import { nanoid } from '@reduxjs/toolkit';
 
-import { selectContacts } from 'store/selector';
-import { addContactThunk } from 'store/CreateAsyncThunk';
+import { selectContacts } from 'store/contacts/selector';
+import { addContactThunk } from 'store/contacts/CreateAsyncThunk';
 
 export const Form = () => {
   const [number, setNumber] = useState('');
@@ -27,7 +26,6 @@ export const Form = () => {
     let isExists = contacts.some(el => el.name.toLowerCase() === name.toLowerCase());
 
     const newContact = {
-      // id: nanoid(),
       name,
       number,
     };
@@ -46,7 +44,9 @@ export const Form = () => {
       <InputName onChange={onChangeState} id="name" name="name" type="text" value={name} />
       <LabelPhone htmlFor="phone">Phone</LabelPhone>
       <InputPhone onChange={onChangeState} id="phone" name="number" type="tel" value={number} />
-      <ButtonType type="submit">BUTTON</ButtonType>
+      <ButtonType type="submit" disabled={!name || !number}>
+        BUTTON
+      </ButtonType>
     </FormsDiv>
   );
 };

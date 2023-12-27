@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  addContactThunk,
-  deleteContactThunk,
-  fetchContactsThunk,
-} from './CreateAsyncThunk';
+import { addContactThunk, deleteContactThunk, fetchContactsThunk } from './CreateAsyncThunk';
 
 const phonebookSlice = createSlice({
   name: 'phonebook',
@@ -17,6 +13,7 @@ const phonebookSlice = createSlice({
   },
   reducers: {
     searchContact: (state, action) => {
+      console.log('action.payload', action.payload);
       state.filter = action.payload;
     },
   },
@@ -56,9 +53,7 @@ const phonebookSlice = createSlice({
 
     builder.addCase(deleteContactThunk.fulfilled, (state, action) => {
       state.contacts.isLoading = false;
-      state.contacts.items = state.contacts.items.filter(
-        el => el.id !== action.payload.id
-      );
+      state.contacts.items = state.contacts.items.filter(el => el.id !== action.payload.id);
     });
 
     builder.addCase(deleteContactThunk.rejected, (state, action) => {
@@ -70,5 +65,4 @@ const phonebookSlice = createSlice({
 
 export const phonebookReducer = phonebookSlice.reducer;
 
-export const { addContact, deleteContact, searchContact } =
-  phonebookSlice.actions;
+export const { addContact, deleteContact, searchContact } = phonebookSlice.actions;

@@ -3,11 +3,12 @@ import { DeleteBtn, ElementDiv, ElementUl } from './StylesJSX/FormElementListSty
 import { ElementsLi } from './StylesJSX/ElementStyles';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectContacts, selectError, selectFilter, selectIsLoading } from 'store/selector';
-import { deleteContactThunk, fetchContactsThunk } from 'store/CreateAsyncThunk';
+import { selectContacts, selectError, selectFilter, selectIsLoading } from 'store/contacts/selector';
+import { deleteContactThunk, fetchContactsThunk } from 'store/contacts/CreateAsyncThunk';
 
 export const ContactList = () => {
   const filter = useSelector(selectFilter);
+  console.log('filter', filter);
   const items = useSelector(selectContacts);
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
@@ -22,7 +23,7 @@ export const ContactList = () => {
   }, [dispatch]);
 
   function filteredContacts() {
-    console.log(filter);
+    console.log(items);
     if (filter && items.length > 0) {
       return items.filter(el => el.name.toLowerCase().includes(filter.toLowerCase()));
     } else return items;
