@@ -20,14 +20,14 @@ import {
 const LoginUserPage = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function submit(data) {
     console.log(data);
     dispatch(signInThunk(data))
       .unwrap()
       .then(() => {
-        navigate('/contacts');
+        // navigate('/contacts');
         return toast.success("You're logged in!");
       })
       .catch(() => toast.error('Something went wrong!'));

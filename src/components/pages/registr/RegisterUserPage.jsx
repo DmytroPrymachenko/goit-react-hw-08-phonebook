@@ -17,14 +17,14 @@ import {
 const RegisterUserPage = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
   function submit(data) {
     dispatch(signUpThunk(data))
       .unwrap()
       .then(() => {
-        navigate('/contacts');
+        // navigate('/contacts');
         return toast.success("You're logined!");
       })
       .catch(err => {
