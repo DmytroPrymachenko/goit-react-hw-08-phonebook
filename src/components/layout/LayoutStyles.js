@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const NavHeader = styled.nav`
   display: flex;
-  gap: 50px;
+  gap: 51px;
 `;
 
 export const Header = styled.header`
