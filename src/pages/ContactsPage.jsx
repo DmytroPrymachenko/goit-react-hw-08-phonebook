@@ -1,10 +1,12 @@
-import Search from 'components/pages/Contacts/Search';
-import { FormDiv, FormElementDiv } from 'components/pages/Contacts/StylesJSX/FormElementListStyles';
 import React from 'react';
-import { Form } from 'components/pages/Contacts/Form';
-import { Navigate } from 'react-router-dom';
+
+import { FormDiv, FormElementDiv } from 'components/contacts/stylesJSX/FormElementListStyles';
+import Search from 'components/contacts/Search';
+import { ContactList } from 'components/contacts/ContactList';
+import { Form } from 'components/contacts/Form';
 import { useSelector } from 'react-redux';
-import { ContactList } from './Contacts/ContactList';
+import { Navigate } from 'react-router-dom';
+
 const ContactsPage = () => {
   const isAuthenticated = useSelector(state => !!state.auth.user);
 

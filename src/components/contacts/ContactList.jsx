@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { DeleteBtn, ElementDiv, ElementUl } from './StylesJSX/FormElementListStyles';
-import { ElementsLi } from './StylesJSX/ElementStyles';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { selectContacts, selectError, selectFilter, selectIsLoading } from 'store/contacts/selector';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteContactThunk, fetchContactsThunk } from 'store/contacts/CreateAsyncThunk';
+import { selectContacts, selectError, selectFilter, selectIsLoading } from 'store/contacts/selector';
+import { DeleteBtn, ElementDiv, ElementUl } from './stylesJSX/FormElementListStyles';
+import { ElementsLi } from './stylesJSX/ElementStyles';
 
 export const ContactList = () => {
   const filter = useSelector(selectFilter);

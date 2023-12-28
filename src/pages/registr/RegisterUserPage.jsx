@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { signUpThunk } from 'store/authorization/authorizationAsyncThunk';
-import { Navigate, useLocation } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
 import {
   RegisterButton,
@@ -13,6 +13,7 @@ import {
   RegisterInput,
   RegisterLogin,
 } from './RegisterStyled';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const RegisterUserPage = () => {
   const { register, handleSubmit } = useForm();

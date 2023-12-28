@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { ButtonType, FormsDiv, InputName, InputPhone, LabelName, LabelPhone } from './StylesJSX/FormStyles';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { selectContacts } from 'store/contacts/selector';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContactThunk } from 'store/contacts/CreateAsyncThunk';
+import { selectContacts } from 'store/contacts/selector';
+import { ButtonType, FormsDiv, InputName, InputPhone, LabelName, LabelPhone } from './stylesJSX/FormStyles';
 
 export const Form = () => {
   const [number, setNumber] = useState('');

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInThunk } from 'store/authorization/authorizationAsyncThunk';
 import { useForm } from 'react-hook-form';
-import { Navigate } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
 import {
   LoginDiv,
@@ -15,12 +15,14 @@ import {
   LoginDivGrup,
   LoginDivGrupSpan,
   LoginNavLink,
-} from './loginStyled';
+} from './LoginStyled';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const LoginUserPage = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   // const navigate = useNavigate();
+  const location = useLocation();
 
   function submit(data) {
     console.log(data);
@@ -36,7 +38,7 @@ const LoginUserPage = () => {
   const isAuthenticated = useSelector(state => !!state.auth.user);
 
   if (isAuthenticated) {
-    return <Navigate to={Location.state?.from || '/contacts'} />;
+    return <Navigate to={location.state?.from || '/contacts'} />;
   }
 
   return (

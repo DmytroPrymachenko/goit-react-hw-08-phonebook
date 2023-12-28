@@ -1,28 +1,29 @@
 import React, { useEffect } from 'react';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-import Layout from 'components/Layout/Layout';
-
-import ContactsPage from 'components/pages/ContactsPage';
-import LoginUserPage from 'components/pages/Login/LoginUserPage';
-import RegisterUserPage from 'components/pages/registr/RegisterUserPage';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import NotFound from 'components/NotFound/NotFound';
+
 import { refreshThunk } from 'store/authorization/authorizationAsyncThunk';
+import Layout from 'components/layout/Layout';
+import ContactsPage from 'pages/ContactsPage';
+
+import RegisterUserPage from 'pages/registr/RegisterUserPage';
+import NotFound from 'components/notFound/NotFound';
+import LoginUserPage from 'pages/login/LoginUserPage';
 
 const App = () => {
   const isAuthenticated = useSelector(state => state.auth.user);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/contacts');
-    }
-  }, [isAuthenticated, navigate]);
-  console.log(isAuthenticated);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate('/contacts');
+  //   }
+  // }, [isAuthenticated, navigate]);
+  // console.log(isAuthenticated);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

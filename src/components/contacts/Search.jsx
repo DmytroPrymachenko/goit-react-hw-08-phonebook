@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputSearch, LabelSearch } from './StylesJSX/FormStyles';
 import { searchContact } from 'store/contacts/contactsSlise';
+import { InputSearch, LabelSearch } from './stylesJSX/FormStyles';
 
 const Search = () => {
   const dispatch = useDispatch();

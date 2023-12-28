@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 import UserButton from './Button';
 import {
@@ -19,27 +19,25 @@ import { useSelector } from 'react-redux';
 
 const Layout = () => {
   const isAuthenticated = useSelector(state => state.auth.user);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/contacts');
-    }
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate('/contacts');
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   return (
     <section>
       <Header>
         <svg></svg>
         <NavHeader>
-          {isAuthenticated && (
+          {isAuthenticated ? (
             <HeaderNavLink to="/contacts">
               <SpanHeader>Contacts</SpanHeader>
               <IHeader></IHeader>
             </HeaderNavLink>
-          )}
-
-          {!isAuthenticated && (
+          ) : (
             <>
               <HeaderNavLink2 to="/login">
                 <SpanHeader2>Login</SpanHeader2>
