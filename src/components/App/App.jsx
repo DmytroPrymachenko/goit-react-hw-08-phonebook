@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { refreshThunk } from 'store/authorization/authorizationAsyncThunk';
 import Layout from 'components/layout/Layout';
@@ -11,7 +11,6 @@ import NotFound from 'components/notFound/NotFound';
 import LoginUserPage from 'pages/login/LoginUserPage';
 
 const App = () => {
-  const isAuthenticated = useSelector(state => state.auth.user);
   // const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,8 +27,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/login" element={isAuthenticated ? <Navigate to="/contacts" /> : <LoginUserPage />} />
-        <Route path="/register" element={isAuthenticated ? <Navigate to="/contacts" /> : <RegisterUserPage />} />
+        <Route path="/login" element={<LoginUserPage />} />
+        <Route path="/register" element={<RegisterUserPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
