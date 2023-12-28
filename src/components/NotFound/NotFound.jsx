@@ -143,7 +143,7 @@ const NotFound = () => {
         </StyledError2>
         <TextDiv>
           <TextSpan1>Sorry</TextSpan1>
-          <TextSpan2>This page is temporarily unavailable</TextSpan2>
+          <TextSpan2>This page is not found</TextSpan2>
         </TextDiv>
       </StyledErrorWrapper>
     </StyledErrorCon>

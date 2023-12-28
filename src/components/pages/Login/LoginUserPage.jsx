@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signInThunk } from 'store/authorization/authorizationAsyncThunk';
 import { useForm } from 'react-hook-form';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {
   LoginDiv,
@@ -10,14 +10,12 @@ import {
   LoginFormBx,
   LoginDivLogin,
   LoginH2,
-  LoginI,
   LoginInput,
   LoginButton,
   LoginDivGrup,
   LoginDivGrupSpan,
   LoginNavLink,
 } from './loginStyled';
-import { signIn } from 'api/Appi';
 
 const LoginUserPage = () => {
   const { register, handleSubmit } = useForm();
@@ -33,6 +31,12 @@ const LoginUserPage = () => {
         return toast.success("You're logged in!");
       })
       .catch(() => toast.error('Something went wrong!'));
+  }
+
+  const isAuthenticated = useSelector(state => !!state.auth.user);
+
+  if (isAuthenticated) {
+    return <Navigate to={Location.state?.from || '/contacts'} />;
   }
 
   return (
@@ -54,7 +58,7 @@ const LoginUserPage = () => {
             <LoginFormBx onSubmit={handleSubmit(submit)}>
               <LoginH2>
                 <i
-                  class="fa-solid fa-right-to-bracket"
+                  className="fa-solid fa-right-to-bracket"
                   style={{
                     color: '#ff2770',
                     textShadow: '0 0 5px #ff2770, 0 0 25px #ff2770',
@@ -62,7 +66,7 @@ const LoginUserPage = () => {
                 ></i>{' '}
                 Login{' '}
                 <i
-                  class="fa-solid fa-heart"
+                  className="fa-solid fa-heart"
                   style={{
                     color: '#ff2770',
                     textShadow: '0 0 5px #ff2770, 0 0 25px #ff2770',

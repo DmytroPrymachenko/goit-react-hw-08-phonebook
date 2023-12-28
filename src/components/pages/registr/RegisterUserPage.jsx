@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { signUpThunk } from 'store/authorization/authorizationAsyncThunk';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {
   RegisterButton,
@@ -18,6 +18,7 @@ const RegisterUserPage = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   function submit(data) {
     dispatch(signUpThunk(data))
@@ -31,13 +32,11 @@ const RegisterUserPage = () => {
       });
   }
 
-  const isAuthenticated = useSelector(state => state.auth.user);
+  const isAuthenticated = useSelector(state => !!state.auth.user);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/contacts');
-    }
-  }, [isAuthenticated, navigate]);
+  if (isAuthenticated) {
+    return <Navigate to={location.state?.from || '/contacts'} />;
+  }
 
   return (
     <div>
@@ -62,7 +61,7 @@ const RegisterUserPage = () => {
             <RegisterFormBx onSubmit={handleSubmit(submit)}>
               <RegisterH2>
                 <i
-                  class="fa-solid fa-right-to-bracket"
+                  className="fa-solid fa-right-to-bracket"
                   style={{
                     color: '#ff2770',
                     textShadow: '0 0 5px #ff2770, 0 0 25px #ff2770',
@@ -70,7 +69,7 @@ const RegisterUserPage = () => {
                 ></i>{' '}
                 Sign up{' '}
                 <i
-                  class="fa-solid fa-heart"
+                  className="fa-solid fa-heart"
                   style={{
                     color: '#ff2770',
                     textShadow: '0 0 5px #ff2770, 0 0 25px #ff2770',

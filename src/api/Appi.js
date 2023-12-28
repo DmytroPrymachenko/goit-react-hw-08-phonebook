@@ -54,7 +54,7 @@ export async function logout() {
 
 export async function refresh() {
   try {
-    const { data } = await api.post('/users/current');
+    const { data } = await api.get('/users/current');
     return data;
   } catch (error) {
     console.error('Refresh error:', error);
