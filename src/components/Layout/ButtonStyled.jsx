@@ -34,3 +34,6 @@ export const ButtonGoBeack = styled.button`
   }
 `;
 export const ButtonGoBeackDiv = styled.div``;
+export const ButtonGoBeackP = styled.p`
+  color: #fff;
+`;
