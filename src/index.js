@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import App from 'components/app/App';
+import App from './components/app/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
