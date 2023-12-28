@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonGoBeack = styled.button`
+  background-color: #27282c;
   position: relative;
   display: inline-block;
   font-size: 1.5em;
