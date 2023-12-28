@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutThunk } from 'store/authorization/authorizationAsyncThunk';
+import { ButtonGoBeack, ButtonGoBeackDiv } from './ButtonStyled';
 
 const UserButton = () => {
   const dispatch = useDispatch();
@@ -11,14 +12,14 @@ const UserButton = () => {
   };
 
   return (
-    <div>
+    <ButtonGoBeackDiv>
       {user ? (
         <>
           <p>Hellow {user.name}</p>
-          <button onClick={handleLogout}>Logout</button>
+          <ButtonGoBeack onClick={handleLogout}>Logout</ButtonGoBeack>
         </>
       ) : null}
-    </div>
+    </ButtonGoBeackDiv>
   );
 };
 

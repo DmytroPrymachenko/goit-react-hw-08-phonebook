@@ -10,7 +10,7 @@ export const Header = styled.header`
   display: flex;
   height: 100px;
   align-items: center;
-
+  gap: 50px;
   background: #27282c;
   * {
     margin: 0;
